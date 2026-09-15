@@ -1,0 +1,159 @@
+{
+  "dataset": {
+    "name": "Diabetes 130-US Hospitals for years 1999-2008",
+    "source": "UCI ML Repository (ID 296) via verified GitHub mirror taspinar/siml",
+    "rows": 101766,
+    "columns_raw": 50,
+    "rows_train": 81412,
+    "rows_test": 20354,
+    "positive_rate": 0.11159915885462728
+  },
+  "models": {
+    "random_forest": {
+      "roc_auc": 0.6777175494386627,
+      "pr_auc": 0.21666071819164742,
+      "accuracy": 0.6780485408273558,
+      "precision": 0.18542462533059065,
+      "recall": 0.555702333773668,
+      "f1": 0.2780654401233888,
+      "f1_best_threshold": 0.2784106696304529,
+      "best_threshold": 0.5249999999999999,
+      "specificity": 0.6934137034784051,
+      "confusion": {
+        "tn": 12539,
+        "fp": 5544,
+        "fn": 1009,
+        "tp": 1262
+      }
+    },
+    "keras_mlp": {
+      "roc_auc": 0.6749913122603383,
+      "pr_auc": 0.21262679205828383,
+      "accuracy": 0.6009138252923258,
+      "precision": 0.16952789699570817,
+      "recall": 0.6609423161602818,
+      "f1": 0.2698426966292135,
+      "f1_best_threshold": 0.2796649604467194,
+      "best_threshold": 0.5349999999999999,
+      "specificity": 0.5933749930874301,
+      "confusion": {
+        "tn": 10730,
+        "fp": 7353,
+        "fn": 770,
+        "tp": 1501
+      }
+    },
+    "xgboost": {
+      "roc_auc": 0.6708540707383999,
+      "pr_auc": 0.21543308403411476,
+      "accuracy": 0.6570207330254495,
+      "precision": 0.17862991266375547,
+      "recall": 0.5763980625275209,
+      "f1": 0.272736743410772,
+      "f1_best_threshold": 0.2740116088051692,
+      "best_threshold": 0.5099999999999999,
+      "specificity": 0.6671459381739756,
+      "confusion": {
+        "tn": 12064,
+        "fp": 6019,
+        "fn": 962,
+        "tp": 1309
+      }
+    },
+    "logreg": {
+      "roc_auc": 0.6683988330827276,
+      "pr_auc": 0.20771116461298195,
+      "accuracy": 0.6386950967868723,
+      "precision": 0.17445881900858204,
+      "recall": 0.5997357992073976,
+      "f1": 0.2702917245485215,
+      "f1_best_threshold": 0.27457589034939894,
+      "best_threshold": 0.5199999999999999,
+      "specificity": 0.6435879002377924,
+      "confusion": {
+        "tn": 11638,
+        "fp": 6445,
+        "fn": 909,
+        "tp": 1362
+      }
+    },
+    "logreg_smote": {
+      "roc_auc": 0.6534866028126629,
+      "pr_auc": 0.19962566710538915,
+      "accuracy": 0.6284268448462219,
+      "precision": 0.16624621594349143,
+      "recall": 0.5803610744165566,
+      "f1": 0.25845671144229826,
+      "f1_best_threshold": 0.26695371367061355,
+      "best_threshold": 0.5549999999999999,
+      "specificity": 0.6344633080794116,
+      "confusion": {
+        "tn": 11473,
+        "fp": 6610,
+        "fn": 953,
+        "tp": 1318
+      }
+    }
+  },
+  "fit_seconds": {
+    "random_forest": 14.535095453262329,
+    "keras_mlp": 18.704232454299927,
+    "xgboost": 3.6030192375183105,
+    "logreg": 3.5952327251434326,
+    "logreg_smote": 6.797072410583496
+  },
+  "ranking": [
+    "random_forest",
+    "keras_mlp",
+    "xgboost",
+    "logreg",
+    "logreg_smote"
+  ],
+  "best_model": "random_forest",
+  "best_pipeline_model": "random_forest",
+  "served_model": {
+    "base_model": "random_forest",
+    "calibration": "isotonic regression, 3-fold CV (for the Streamlit demo)",
+    "metrics": {
+      "roc_auc": 0.6771951649243582,
+      "pr_auc": 0.21650704957386677,
+      "accuracy": 0.8891127051193869,
+      "precision": 0.6842105263157895,
+      "recall": 0.011448701012769706,
+      "f1": 0.02252057167605024,
+      "f1_best_threshold": 0.2777538726333907,
+      "best_threshold": 0.13,
+      "specificity": 0.9993363932975723,
+      "confusion": {
+        "tn": 18071,
+        "fp": 12,
+        "fn": 2245,
+        "tp": 26
+      }
+    }
+  },
+  "params": {
+    "random_forest": {
+      "n_estimators": 400,
+      "max_depth": 14,
+      "min_samples_leaf": 10,
+      "max_features": "sqrt",
+      "class_weight": "balanced_subsample",
+      "n_jobs": -1,
+      "random_state": 42
+    },
+    "xgboost": {
+      "n_estimators": 500,
+      "learning_rate": 0.05,
+      "max_depth": 6,
+      "subsample": 1.0,
+      "colsample_bytree": 0.9,
+      "reg_lambda": 1.0,
+      "tree_method": "hist",
+      "n_jobs": -1,
+      "random_state": 42,
+      "eval_metric": "auc",
+      "scale_pos_weight": 7.960158485582214
+    }
+  }
+}
